@@ -20,8 +20,6 @@ class ShowEvent extends Component
 
   public function render()
   {
-    $this->typeEvenement = $this->event->type_event;
-
     $usersIds = EventByUser::where('event_id', $this->eventId)->pluck('user_id')->toArray();
     if ($usersIds) {
       foreach ($usersIds as $userId) {

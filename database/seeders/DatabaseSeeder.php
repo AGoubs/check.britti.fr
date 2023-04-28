@@ -32,22 +32,12 @@ class DatabaseSeeder extends Seeder
       'role' => 'admin'
     ]);
 
-
     TypeEvent::factory()->create([
       'type_event' => 'Basique',
       'fields' => 'Nom,Prénom,Fonction,Téléphone,Commentaire'
     ]);
-    TypeEvent::factory()->create([
-      'type_event' => 'Stade',
-      'fields' => 'Nom,Prénom,Fonction,Téléphone,Numéro Ipad,Point,Commentaire'
-    ]);
-    TypeEvent::factory()->create([
-      'type_event' => 'FDL',
-      'fields' => 'Nom,Prénom,Fonction,Téléphone,Lieu,Porte,Commentaire'
-    ]);
 
-
-    Event::factory(30)->create();
-    Host::factory(100)->create();
+    Event::factory(1)->create();
+    Host::factory(1)->create();
   }
 }

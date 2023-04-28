@@ -5,7 +5,7 @@
         <div class="card-header">
           <div class="d-flex flex-row justify-content-between">
             <div>
-              <h5 class="mb-0">{{ $tableType->type_event }}</h5>
+              <h5 class="mb-0">Invités</h5>
             </div>
             <a href="{{ route('hosts.edit', $eventId) }}" class="btn bg-gradient-dark btn-sm mb-0" type="button">+&nbsp; Ajouter</a>
           </div>
@@ -43,10 +43,8 @@
                             <span class="badge badge-sm badge-warning">
                               {{ date('H:i', strtotime($host->time_arrived)) }}</span>
                           @endif
-
                         @else
                           <span class="badge badge-sm badge-success ms-2">Oui</span>
-
                         @endif
 
                       </td>
