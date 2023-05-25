@@ -21267,5 +21267,9 @@ Github: https://github.com/fiduswriter/Simple-DataTables
 }
 
 .action-col {
-  min-width: 120px;
+    min-width: 120px
+}
+
+.min-vh-40 {
+    min-height: 40vh!important
 }
