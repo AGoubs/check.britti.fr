@@ -21,4 +21,9 @@ class EventsUsersTable extends Component
     }
     return view('livewire.components.events-users-table');
   }
+
+  public function selectEvent($userId)
+  {
+    return redirect()->route('users-events.index', ['userId' => $userId]);
+  }
 }
