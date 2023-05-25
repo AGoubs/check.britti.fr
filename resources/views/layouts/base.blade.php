@@ -27,7 +27,7 @@
   <link href="{{ asset('assets/js/kit-fontawesome.min.js') }}" rel="stylesheet" />
 
   <!-- CSS Files -->
-  <link href="{{ asset('assets/css/soft-ui-dashboard.min.css') }}" rel="stylesheet" />
+  <link href="{{ asset('assets/css/soft-ui-dashboard.css') }}" rel="stylesheet" />
 
   <!-- Alpine -->
   {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> --}}
