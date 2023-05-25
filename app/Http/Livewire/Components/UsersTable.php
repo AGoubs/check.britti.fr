@@ -18,6 +18,8 @@ class UsersTable extends Component
 
   public function render()
   {
+    $this->users = User::all();
+
     return view('livewire.components.users-table');
   }
 

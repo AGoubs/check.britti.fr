@@ -13,6 +13,7 @@ use App\Http\Livewire\EditHost;
 use App\Http\Livewire\Event;
 
 use App\Http\Livewire\LaravelExamples\UserProfile;
+use App\Http\Livewire\ReadEvent;
 use App\Http\Livewire\ShowEvent;
 use App\Http\Livewire\Users\CreateUser;
 use App\Http\Livewire\Users\ShowUsers;
@@ -49,6 +50,8 @@ Route::middleware('auth')->group(function () {
   Route::prefix('events')->group(function () {
     Route::get('/', Event::class)->name('events.index');
     Route::get('/show/{eventId?}', ShowEvent::class)->name('events.show');
+    Route::get('/read/{eventId?}', ReadEvent::class)->name('events.read');
+    // Route::get('/contact/{eventId}', ContactContact::class)->name('events.contact');
 
     Route::middleware('admin')->group(function () {
       Route::get('/create', CreateEvent::class)->name('events.create');
@@ -78,7 +81,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/change-password', ResetPassword::class)->name('users.change-password');
   });
 
-   /**
+  /**
    * UsersEvent Routes
    */
   Route::prefix('users-events')->group(function () {
@@ -87,7 +90,7 @@ Route::middleware('auth')->group(function () {
     });
   });
 
-   /**
+  /**
    * AssignUsers Routes
    */
   Route::prefix('assign-users')->group(function () {

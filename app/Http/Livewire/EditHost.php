@@ -54,6 +54,10 @@ class EditHost extends Component
 
     $this->host->save();
 
-    return redirect()->route('hosts.add', [$this->eventId]);
+    if (auth()->user()->isAdmin()) {
+      return redirect()->route('hosts.add', [$this->eventId]);
+    } else {
+      return redirect()->route('events.read', [$this->eventId]);
+    }
   }
 }

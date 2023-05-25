@@ -13,7 +13,7 @@
 
     <livewire:import-host :eventId="$eventId" />
 
-    <livewire:components.hosts :eventId="$eventId" />
+    <livewire:components.tables.hosts-table :eventId="$eventId" />
 
     <div class="button-row d-flex mt-4 float-right">
       <button class="btn bg-gradient-dark ms-auto mb-0" wire:click="submit">Valider</button>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Auth;
 
+use App\Models\Event;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use App\Models\User;
@@ -38,7 +39,12 @@ class Login extends Component
       if (auth()->user()->isAdmin()) {
         return redirect()->intended('/accueil');
       } else {
-        return redirect()->intended('/events');
+        if (Event::getTodayEventByUser(auth()->id())) {
+          return redirect()->route('events.read', [Event::getTodayEventByUser(auth()->id())]);
+        } else {
+          auth()->logout();
+          return $this->addError('email', trans("auth.no_event"));
+        }
       }
     } else {
       return $this->addError('email', trans('auth.failed'));

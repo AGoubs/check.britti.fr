@@ -4,7 +4,6 @@ namespace App\Http\Livewire;
 
 use App\Models\Event;
 use App\Models\EventByUser;
-use App\Models\Host;
 use App\Models\User;
 use Livewire\Component;
 
@@ -15,17 +14,11 @@ class ShowEvent extends Component
   public $hosts;
   public $tableField;
   public $typeEvenement;
-  public $users;
   public $userEvents;
 
   public function render()
   {
-    $usersIds = EventByUser::where('event_id', $this->eventId)->pluck('user_id')->toArray();
-    if ($usersIds) {
-      foreach ($usersIds as $userId) {
-        $this->users[] = User::where('id', $userId)->first();
-      }
-    }
+
     return view('livewire.show-event');
   }
 
@@ -33,6 +26,7 @@ class ShowEvent extends Component
   {
     $this->userEvents = EventByUser::where('user_id', auth()->id())->pluck('event_id')->toArray();
 
+    // Si pas d'event on affiche l'évènement du jour
     if (!isset($this->eventId)) {
       $this->event = Event::where('Date', date("Y-m-d"))->first();
       if (!isset($this->event)) {
@@ -43,6 +37,7 @@ class ShowEvent extends Component
       }
     }
 
+    // Affiche l'évènement si les droits sont suffisants
     if (in_array($this->eventId, $this->userEvents) || auth()->user()->isAdmin()) {
       $this->event = Event::find($this->eventId);
     } else {

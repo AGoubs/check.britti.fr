@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
 
     TypeEvent::factory()->create([
       'type_event' => 'Basique',
-      'fields' => 'Nom,Prénom,Fonction,Téléphone,Commentaire'
+      'fields' => 'Nom,Prénom,Téléphone,Commentaire'
     ]);
 
     Event::factory(1)->create();
