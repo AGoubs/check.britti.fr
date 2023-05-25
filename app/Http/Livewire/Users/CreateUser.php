@@ -16,8 +16,7 @@ class CreateUser extends Component
     'user.email' => 'required|unique:users,email',
     'user.password' => 'required',
     'user.phone' => 'max:12',
-    'user.about' => 'max:200',
-    'user.location' => 'min:1',
+    'user.about' => 'max:200'
   ];
 
   public function mount()

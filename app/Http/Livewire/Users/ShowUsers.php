@@ -17,7 +17,6 @@ class ShowUsers extends Component
     'user.email' => 'required',
     'user.phone' => 'max:12',
     'user.about' => 'max:200',
-    'user.location' => 'min:1'
   ];
 
   public function mount($userId)
