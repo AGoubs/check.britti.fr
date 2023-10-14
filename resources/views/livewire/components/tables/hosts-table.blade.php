@@ -12,7 +12,7 @@
       {{-- <hr class="horizontal dark mt-3"> --}}
       <div class="card-body px-0 pt-0 pb-2">
         <div class="table-responsive">
-          <table class="table align-items-center mb-0">
+          <table class="table align-items-center mb-0" id="hosts-table">
             <thead>
               <tr>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -94,7 +94,7 @@
                       <i class="fas fa-user-edit text-secondary"></i>
                     </a>
                     <span>
-                      <i class="cursor-pointer fas fa-trash text-secondary" data-bs-toggle="tooltip" data-bs-original-title="Supprimer l'hôte" onclick="confirm('Supprimer cet hôte ?') || event.stopImmediatePropagation()" wire:click="deleteHost({{ $host->id }})"></i>
+                      <i class="cursor-pointer fas fa-trash text-secondary" data-bs-toggle="tooltip" data-bs-original-title="Supprimer l'hôte" onclick="deleteHost({{ $host->id }})"></i>
                     </span>
                   </td>
                 </tr>
@@ -110,3 +110,25 @@
       @endif
     </div>
   </div>
+
+  <script src="{{ asset('assets/js/plugins/datatables.js') }}"></script>
+  <script>
+    const dataTableSearchHosts = new simpleDatatables.DataTable("#hosts-table", {
+      searchable: true,
+      fixedHeight: true,
+      perPage: 50,
+      labels: {
+        placeholder: "Rechercher...",
+        perPage: "{select} évènements par page",
+        noRows: "Aucun évènements trouvée",
+        info: "Affichage de {start} à {end} des {rows} évènements",
+      }
+    });
+  </script>
+  <script>
+    function deleteHost(id) {
+      if (confirm("Supprimer cet hôte ?")) {
+        @this.deleteHost(id);
+      }
+    }
+  </script>

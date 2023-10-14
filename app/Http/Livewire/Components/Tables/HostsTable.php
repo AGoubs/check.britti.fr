@@ -32,6 +32,7 @@ class HostsTable extends Component
   public function deleteHost($id)
   {
     Host::find($id)->delete();
+    return redirect()->route('events.show', [$this->eventId]);
   }
 
   public function deleteAllHosts()
@@ -49,5 +50,7 @@ class HostsTable extends Component
       $host->time_arrived = date('H:i');
     }
     $host->save();
+
+    $this->dispatchBrowserEvent('table-updated');
   }
 }
