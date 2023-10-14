@@ -111,20 +111,6 @@
     </div>
   </div>
 
-  <script src="{{ asset('assets/js/plugins/datatables.js') }}"></script>
-  <script>
-    const dataTableSearchHosts = new simpleDatatables.DataTable("#hosts-table", {
-      searchable: true,
-      fixedHeight: true,
-      perPage: 50,
-      labels: {
-        placeholder: "Rechercher...",
-        perPage: "{select} évènements par page",
-        noRows: "Aucun évènements trouvée",
-        info: "Affichage de {start} à {end} des {rows} évènements",
-      }
-    });
-  </script>
   <script>
     function deleteHost(id) {
       if (confirm("Supprimer cet hôte ?")) {

@@ -30,8 +30,8 @@
   <link href="{{ asset('assets/css/soft-ui-dashboard.css') }}" rel="stylesheet" />
 
   <!-- Alpine -->
-  {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> --}}
-  <script src="{{ asset('assets/js/alpine.min.js') }}" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.1/dist/cdn.min.js" defer></script>
+  {{-- <script src="{{ asset('assets/js/alpine.min.js') }}" defer></script> --}}
 
   @livewireStyles
 
